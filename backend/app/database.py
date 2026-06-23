@@ -204,8 +204,8 @@ async def upsert_weak_area(student_id: str, topic: str, concept: str) -> None:
     """Insert a new weak area or increment its frequency if it already exists."""
     async with pool.acquire() as db:
         existing = await db.fetchrow(
-            "SELECT id, frequency FROM weak_areas WHERE student_id = $1 AND topic = $2 AND concept = $3",
-            student_id, topic, concept,
+            "SELECT id, frequency FROM weak_areas WHERE student_id = $1 AND LOWER(topic) = LOWER($2)",
+            student_id, topic,
         )
 
         if existing:
@@ -225,9 +225,14 @@ async def get_weak_areas(student_id: str) -> list[dict]:
     async with pool.acquire() as db:
         rows = await db.fetch(
             """
-            SELECT id, student_id, topic, concept, frequency, last_seen
+            SELECT MAX(id) as id, 
+                   MAX(topic) as topic, 
+                   MAX(concept) as concept, 
+                   SUM(frequency) as frequency, 
+                   MAX(last_seen) as last_seen
             FROM weak_areas
             WHERE student_id = $1
+            GROUP BY LOWER(topic)
             ORDER BY frequency DESC
             """,
             student_id,

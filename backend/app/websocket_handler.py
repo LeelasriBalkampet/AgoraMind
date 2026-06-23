@@ -6,11 +6,9 @@ Core WebSocket endpoint for real-time Socratic tutoring conversations.
 import asyncio
 import json
 
-import aiosqlite
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect
 
 from .database import (
-    DB_PATH,
     add_message,
     create_session,
     create_student,
@@ -214,12 +212,12 @@ async def websocket_endpoint(websocket: WebSocket, student_id: str, session_id: 
             if len(student_messages) == 1:
                 # First response — generate initial question about the topic
                 # Update session topic
-                async with aiosqlite.connect(DB_PATH) as db:
+                from . import database
+                async with database.pool.acquire() as db:
                     await db.execute(
-                        "UPDATE sessions SET topic = ? WHERE id = ?",
-                        (content, session_id),
+                        "UPDATE sessions SET topic = $1 WHERE id = $2",
+                        content, session_id,
                     )
-                    await db.commit()
 
                 question = await question_agent.run(chat_history)
                 await add_message(session_id, "tutor", question)

@@ -6,12 +6,12 @@ Handles user registration and login with JWT tokens.
 import os
 import jwt
 import datetime
-import aiosqlite
+import asyncpg
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 import bcrypt
 
-from .database import DB_PATH
+from . import database
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 
@@ -52,14 +52,12 @@ async def register(req: RegisterRequest):
     password_hash = bcrypt.hashpw(req.password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
 
     try:
-        async with aiosqlite.connect(DB_PATH) as db:
-            cursor = await db.execute(
-                "INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)",
-                (req.username.strip(), req.email.strip().lower(), password_hash),
+        async with database.pool.acquire() as db:
+            user_id = await db.fetchval(
+                "INSERT INTO users (username, email, password_hash) VALUES ($1, $2, $3) RETURNING id",
+                req.username.strip(), req.email.strip().lower(), password_hash,
             )
-            await db.commit()
-            user_id = cursor.lastrowid
-    except aiosqlite.IntegrityError:
+    except asyncpg.exceptions.UniqueViolationError:
         raise HTTPException(status_code=409, detail="Email or username already exists")
 
     token = create_token(user_id, req.username)
@@ -74,13 +72,11 @@ async def login(req: LoginRequest):
         token = create_token(0, "AgoraMind Admin")
         return {"token": token, "username": "AgoraMind Admin", "user_id": 0, "isAdmin": True}
 
-    async with aiosqlite.connect(DB_PATH) as db:
-        db.row_factory = aiosqlite.Row
-        cursor = await db.execute(
-            "SELECT id, username, password_hash FROM users WHERE email = ?",
-            (req.email.strip().lower(),),
+    async with database.pool.acquire() as db:
+        row = await db.fetchrow(
+            "SELECT id, username, password_hash FROM users WHERE email = $1",
+            req.email.strip().lower(),
         )
-        row = await cursor.fetchone()
 
     if not row or not bcrypt.checkpw(req.password.encode('utf-8'), row["password_hash"].encode('utf-8')):
         raise HTTPException(status_code=401, detail="Invalid email or password")

@@ -3,12 +3,11 @@ Admin Router
 Handles global statistics for the admin dashboard.
 """
 
-import aiosqlite
 from fastapi import APIRouter, HTTPException, Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 import jwt
 from .auth import SECRET_KEY, ALGORITHM
-from .database import DB_PATH, get_global_stats, get_all_users_stats
+from .database import get_global_stats, get_all_users_stats
 
 router = APIRouter(prefix="/api/admin", tags=["admin"])
 security = HTTPBearer()
