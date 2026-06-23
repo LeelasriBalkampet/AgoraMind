@@ -13,10 +13,25 @@ A full-stack web application that uses the **Socratic method** to guide students
 - **Real-time Dashboard** - Mastery score, weak areas, and recommendations
 
 ## Tech Stack
+
+# Frontend
 - React 18
+- JavaScript
+- Vite
+- CSS3
+
+# Backend
 - FastAPI
 - Python 3.11+
-- PostgreSQL
+- WebSockets
+
+# Database
+- PostgreSQL (Neon)
+
+# Deployment
+- Frontend: Vercel
+- Backend: Render
+- Database: Neon PostgreSQL
 
 ## Architecture
 
@@ -46,7 +61,7 @@ A full-stack web application that uses the **Socratic method** to guide students
 │  └───────────────────┬───────────────────────┘   │
 │                      │                           │
 │              ┌───────┴───────┐                   │
-│              │    SQLite     │                   │
+│              │  PostgreSQL   │                   │
 │              │   Database    │                   │
 │              └───────────────┘                   │
 └──────────────────────────────────────────────────┘
