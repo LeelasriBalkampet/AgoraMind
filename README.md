@@ -14,21 +14,21 @@ A full-stack web application that uses the **Socratic method** to guide students
 
 ## Tech Stack
 
-# Frontend
+### Frontend
 - React 18
 - JavaScript
 - Vite
 - CSS3
 
-# Backend
+### Backend
 - FastAPI
 - Python 3.11+
 - WebSockets
 
-# Database
+### Database
 - PostgreSQL (Neon)
 
-# Deployment
+### Deployment
 - Frontend: Vercel
 - Backend: Render
 - Database: Neon PostgreSQL
