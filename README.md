@@ -4,11 +4,7 @@
 
 A full-stack web application that uses the **Socratic method** to guide students through learning. The AI tutor **never gives direct answers** — instead, it asks questions to help students discover answers themselves.
 
-![Dark Theme](https://img.shields.io/badge/theme-dark-1a1a3e)
-![React](https://img.shields.io/badge/frontend-React%2018-61DAFB)
-![FastAPI](https://img.shields.io/badge/backend-FastAPI-009688)
-![Python](https://img.shields.io/badge/python-3.11%2B-3776AB)
-![PostgreSQL](https://img.shields.io/badge/database-PostgreSQL-336791)
+![Dark Theme](https://img.shields.io/badge/theme-dark-1a1a3e) ![React](https://img.shields.io/badge/frontend-React%2018-61DAFB) ![FastAPI](https://img.shields.io/badge/backend-FastAPI-009688) ![Python](https://img.shields.io/badge/python-3.11%2B-3776AB) ![PostgreSQL](https://img.shields.io/badge/database-PostgreSQL-336791)
 
 ## ✨ Features
 
