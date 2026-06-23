@@ -37,27 +37,27 @@ A full-stack web application that uses the **Socratic method** to guide students
 
 ```
 ┌─────────────────────────────────────────────────┐
-│                   Frontend                       │
-│         React + JavaScript + Vite                │
-│                                                  │
-│  ┌──────────┐  ┌──────────┐  ┌──────────────┐  │
-│  │   Chat   │  │  Voice   │  │  Dashboard   │  │
-│  │Interface │  │  Input   │  │   Sidebar    │  │
-│  └────┬─────┘  └────┬─────┘  └──────────────┘  │
-│       │              │                           │
-│       └──────┬───────┘                           │
-│              │ WebSocket + REST                  │
-└──────────────┼───────────────────────────────────┘
+│                   Frontend                      │
+│         React + JavaScript + Vite               │
+│                                                 │
+│  ┌──────────┐  ┌──────────┐  ┌──────────────┐   │
+│  │   Chat   │  │  Voice   │  │  Dashboard   │   │
+│  │Interface │  │  Input   │  │   Sidebar    │   │
+│  └────┬─────┘  └────┬─────┘  └──────────────┘   │
+│       │              │                          │
+│       └──────┬───────┘                          │
+│              │ WebSocket + REST                 │
+└──────────────┼──────────────────────────────────┘
                │
 ┌──────────────┼───────────────────────────────────┐
-│              │          Backend                   │
-│         FastAPI + WebSocket                       │
+│              │   Backend                         │
+│         FastAPI + WebSocket                      │
 │                                                  │
 │  ┌───────────────────────────────────────────┐   │
-│  │          Multi-Agent System                │   │
-│  │                                            │   │
-│  │  Question → Analysis → Socratic → Fitness  │   │
-│  │   Agent      Agent      Agent      Agent   │   │
+│  │          Multi-Agent System               │   │
+│  │                                           │   │
+│  │  Question → Analysis → Socratic → Fitness │   │
+│  │   Agent      Agent      Agent      Agent  │   │
 │  └───────────────────┬───────────────────────┘   │
 │                      │                           │
 │              ┌───────┴───────┐                   │
