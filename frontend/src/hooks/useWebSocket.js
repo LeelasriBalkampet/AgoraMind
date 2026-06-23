@@ -19,10 +19,16 @@ export default function useWebSocket(studentId, onMessage, sessionId = null) {
   const connect = useCallback(() => {
     if (!studentId) return;
 
-    // Build WebSocket URL — use relative path so the Vite proxy works in dev
-    const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
-    const host = window.location.host;
-    let url = `${protocol}://${host}/ws/${studentId}`;
+    // Build WebSocket URL
+    let url;
+    if (import.meta.env.VITE_WS_URL) {
+      url = `${import.meta.env.VITE_WS_URL}/${studentId}`;
+    } else {
+      const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+      const host = window.location.host;
+      url = `${protocol}://${host}/ws/${studentId}`;
+    }
+    
     if (sessionId) {
       url += `?session_id=${sessionId}`;
     }
