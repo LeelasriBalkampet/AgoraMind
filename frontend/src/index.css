@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-agora-bg: #09090b;
+  --color-agora-border: #27272a;
+  --color-agora-accent: #3b82f6;
+  --color-agora-text: #f4f4f5;
+  --color-agora-muted: #a1a1aa;
+  
+  --font-main: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-agora-bg text-agora-text font-main font-medium subpixel-antialiased selection:bg-agora-accent/30;
+    background-image: radial-gradient(circle at 50% 0%, rgba(39, 39, 42, 0.4), transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-[#18181b] border border-[#27272a] shadow-sm transition-all duration-300 ease-out hover:border-[#3f3f46] hover:bg-[#1a1a1f] hover:shadow-md hover:-translate-y-[1px];
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#3f3f46] rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-[#52525b];
+  }
+}
+
+#root {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}

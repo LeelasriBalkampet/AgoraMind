@@ -1,0 +1,48 @@
+/* ModeToggle */
+
+.mode-toggle {
+  display: flex;
+  position: relative;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  padding: 4px;
+  gap: 0;
+}
+
+.mode-toggle-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 2;
+  transition: color var(--transition-fast);
+  user-select: none;
+}
+
+.mode-toggle-btn--active {
+  color: #fff;
+}
+
+/* sliding background pill */
+.mode-toggle-indicator {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  height: calc(100% - 8px);
+  background: var(--accent-gradient);
+  border-radius: 999px;
+  z-index: 1;
+  transition: transform var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--accent-glow);
+}
