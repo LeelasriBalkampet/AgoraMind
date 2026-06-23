@@ -1,20 +1,22 @@
 # 🏛️ AgoraMind — Voice-First Socratic Tutoring System
 
+**🚀 Live Demo:** [https://agora-mind-tau.vercel.app](https://agora-mind-tau.vercel.app)
+
 A full-stack web application that uses the **Socratic method** to guide students through learning. The AI tutor **never gives direct answers** — instead, it asks questions to help students discover answers themselves.
 
 ![Dark Theme](https://img.shields.io/badge/theme-dark-1a1a3e)
 ![React](https://img.shields.io/badge/frontend-React%2018-61DAFB)
 ![FastAPI](https://img.shields.io/badge/backend-FastAPI-009688)
 ![Python](https://img.shields.io/badge/python-3.11%2B-3776AB)
+![PostgreSQL](https://img.shields.io/badge/database-PostgreSQL-336791)
 
 ## ✨ Features
 
 - **Dual Input Modes** — Type or use push-to-talk voice input
 - **Socratic Tutoring** — AI never gives answers, only guides through questions
 - **Multi-Agent System** — 4 specialized agents (Question, Analysis, Socratic, Fitness)
-- **Session Tracking** — SQLite database stores all conversations and progress
+- **Session Tracking** — Neon PostgreSQL database stores all conversations and progress
 - **Real-time Dashboard** — Mastery score, weak areas, and recommendations
-- **Mock/Demo Mode** — Works without an OpenAI API key for testing
 
 ## 🏗️ Architecture
 
