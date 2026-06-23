@@ -1,20 +1,24 @@
-# 🏛️ AgoraMind — Voice-First Socratic Tutoring System
+# AgoraMind — Voice-First Socratic Tutoring System
 
-**🚀 Live Demo:** [https://agora-mind-tau.vercel.app](https://agora-mind-tau.vercel.app)
+**Live Demo:** [https://agora-mind-tau.vercel.app](https://agora-mind-tau.vercel.app)
 
 A full-stack web application that uses the **Socratic method** to guide students through learning. The AI tutor **never gives direct answers** — instead, it asks questions to help students discover answers themselves.
 
-![Dark Theme](https://img.shields.io/badge/theme-dark-1a1a3e) ![React](https://img.shields.io/badge/frontend-React%2018-61DAFB) ![FastAPI](https://img.shields.io/badge/backend-FastAPI-009688) ![Python](https://img.shields.io/badge/python-3.11%2B-3776AB) ![PostgreSQL](https://img.shields.io/badge/database-PostgreSQL-336791)
+## Features
 
-## ✨ Features
+- **Dual Input Modes** - Type or use push-to-talk voice input
+- **Socratic Tutoring** - AI never gives answers, only guides through questions
+- **Multi-Agent System** - 4 specialized agents (Question, Analysis, Socratic, Fitness)
+- **Session Tracking** - Neon PostgreSQL database stores all conversations and progress
+- **Real-time Dashboard** - Mastery score, weak areas, and recommendations
 
-- **Dual Input Modes** — Type or use push-to-talk voice input
-- **Socratic Tutoring** — AI never gives answers, only guides through questions
-- **Multi-Agent System** — 4 specialized agents (Question, Analysis, Socratic, Fitness)
-- **Session Tracking** — Neon PostgreSQL database stores all conversations and progress
-- **Real-time Dashboard** — Mastery score, weak areas, and recommendations
+## Tech Stack
+- React 18
+- FastAPI
+- Python 3.11+
+- PostgreSQL
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────────────────────────────────────┐
@@ -48,7 +52,7 @@ A full-stack web application that uses the **Socratic method** to guide students
 └──────────────────────────────────────────────────┘
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -103,14 +107,14 @@ npm run dev
 
 Navigate to **http://localhost:5173** in your browser.
 
-## 🎮 How to Use
+## How to Use
 
-1. **Open the app** — you'll get a unique student ID automatically
-2. **The tutor greets you** — "What topic would you like to explore today?"
-3. **Type or speak** — use the text input or hold the microphone button to talk
-4. **Learn through questions** — the tutor asks guiding questions, never gives answers
-5. **Track your progress** — check the dashboard for mastery score and weak areas
-6. **Close & resume** — session summary is generated when you disconnect
+1. **Open the app** - you'll get a unique student ID automatically
+2. **The tutor greets you** - "What topic would you like to explore today?"
+3. **Type or speak** - use the text input or hold the microphone button to talk
+4. **Learn through questions** - the tutor asks guiding questions, never gives answers
+5. **Track your progress** - check the dashboard for mastery score and weak areas
+6. **Close & resume** - session summary is generated when you disconnect
 
 ## 🤖 Multi-Agent System
 
@@ -121,21 +125,21 @@ Navigate to **http://localhost:5173** in your browser.
 | **Socratic Agent** | Generates next guiding question based on gap analysis |
 | **Fitness Agent** | Tracks progress, calculates mastery score, recommends next steps |
 
-## 🔑 Environment Variables
+## Environment Variables
 
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `OPENAI_API_KEY` | No | OpenAI API key for GPT + Whisper. Without it, runs in demo mode. |
 
-## 🎨 Design
+## Design
 
 - **Dark theme** with blue/purple gradient accents
 - **Glassmorphism** card effects with backdrop blur
 - **Smooth animations** on messages, buttons, and dashboard
-- **Responsive** — works on desktop and mobile
-- **Push-to-talk** — large, intuitive voice button
+- **Responsive** - works on desktop and mobile
+- **Push-to-talk** - large, intuitive voice button
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 AgoraMind/
@@ -162,7 +166,7 @@ AgoraMind/
 └── README.md
 ```
 
-## 🚢 Deployment
+## Deployment
 
 ### Frontend → Vercel
 ```bash
@@ -175,7 +179,3 @@ npm run build
 - Set the start command to: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
 - Add `OPENAI_API_KEY` as an environment variable
 - Set the root directory to `backend/`
-
-## 📄 License
-
-MIT
