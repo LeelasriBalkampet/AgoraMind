@@ -1,8 +1,8 @@
-# AgoraMind — Voice-First Socratic Tutoring System
+# AgoraMind - Voice-First Socratic Tutoring System
 
 **Live Demo:** [https://agora-mind-tau.vercel.app](https://agora-mind-tau.vercel.app)
 
-A full-stack web application that uses the **Socratic method** to guide students through learning. The AI tutor **never gives direct answers** — instead, it asks questions to help students discover answers themselves.
+A full-stack web application that uses the **Socratic method** to guide students through learning. The AI tutor **never gives direct answers** - instead, it asks questions to help students discover answers themselves.
 
 ## Features
 
@@ -116,7 +116,7 @@ Navigate to **http://localhost:5173** in your browser.
 5. **Track your progress** - check the dashboard for mastery score and weak areas
 6. **Close & resume** - session summary is generated when you disconnect
 
-## 🤖 Multi-Agent System
+## Multi-Agent System
 
 | Agent | Role |
 |-------|------|
