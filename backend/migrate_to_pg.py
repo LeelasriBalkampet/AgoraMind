@@ -2,7 +2,7 @@ import sqlite3
 import psycopg2
 import sys
 
-PG_URL = "postgresql://neondb_owner:npg_MY2dXHza8tJp@ep-floral-term-ao0mebu2.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require"
+PG_URL = "postgresql://neondb_owner:npg_MY2dXHza8tJp@ep-floral-term-ao0mebu2-pooler.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
 
 def dict_factory(cursor, row):
     d = {}
